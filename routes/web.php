@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DepartamentoController;
+use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', IndexController::class)->name('index');
+Route::resource('departamentos', DepartamentoController::class);
