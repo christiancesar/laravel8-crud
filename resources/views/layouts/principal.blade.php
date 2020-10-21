@@ -22,7 +22,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{-- TODO --}}">Departamentos</a>
+                    <a class="nav-link" href="{{ route('departamentos.index') }}">Departamentos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{-- TODO --}}">Marcas</span></a>
