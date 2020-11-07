@@ -44,9 +44,9 @@
                     <th scope="row">{{ $d->id }}</th>
                     <td>{{ $d->nome }}</td>
                     <td>
-                        <form action="{{-- TODO --}}" method="POST">
-                            {{-- TODO --}}
-                            {{-- TODO --}}
+                        <form action="{{ route('departamentos.destroy', $d->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm">
                                 Apagar
                             </button>                            

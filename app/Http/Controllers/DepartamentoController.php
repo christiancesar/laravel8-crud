@@ -120,6 +120,11 @@ class DepartamentoController extends Controller
      */
     public function destroy(Departamento $departamento)
     {
-        //
+        // TODO 
+        
+        $departamento->delete();
+
+        return redirect()->route('departamentos.index')
+            ->with('msg_success', 'Departamento removido com sucesso.');
     }
 }
