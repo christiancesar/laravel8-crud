@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Departamento;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class DepartamentoController extends Controller
 {
@@ -74,7 +75,10 @@ class DepartamentoController extends Controller
      */
     public function edit(Departamento $departamento)
     {
-        //
+        return view(
+            'departamentos.edit', 
+            compact(['departamento'])
+        );
     }
 
     /**
@@ -86,7 +90,26 @@ class DepartamentoController extends Controller
      */
     public function update(Request $request, Departamento $departamento)
     {
-        //
+        $request->validate(
+            [ 
+                'nome' => [
+                    'required',
+                    'min:2',
+                    Rule::unique('departamentos')->ignore($departamento->id)
+                ],
+            ],
+            [
+              'nome.required' => 'O nome do departamento é obrigatório'  ,
+              'nome.min' => 'O nome de departamento deve ter no mínimo 2 letras'  ,
+              'nome.unique' => 'Este departamento já está cadastrado'  ,
+            ]
+        );
+
+        $departamento->nome = $request->nome;
+        $departamento->save();
+
+        return redirect()->route('departamentos.index')
+            ->with('msg_success', 'Departamento atualizado com sucesso');        
     }
 
     /**

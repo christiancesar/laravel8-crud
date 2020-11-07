@@ -55,7 +55,7 @@
                                 Detalhes
                             </a>
                             <a class="btn btn-secondary btn-sm active" 
-                                href="{{-- TODO --}}">
+                                href="{{ route('departamentos.edit', $d->id) }}">
                                 Editar
                             </a>
                         </form>
