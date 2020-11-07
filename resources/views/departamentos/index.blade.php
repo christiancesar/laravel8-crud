@@ -51,7 +51,7 @@
                                 Apagar
                             </button>                            
                             <a class="btn btn-primary btn-sm active" 
-                                href="{{-- TODO --}}">
+                                href="{{ route('departamentos.show', $d->id) }}">
                                 Detalhes
                             </a>
                             <a class="btn btn-secondary btn-sm active" 

@@ -64,7 +64,9 @@ class DepartamentoController extends Controller
      */
     public function show(Departamento $departamento)
     {
-        //
+        return view('departamentos.show', 
+            compact(['departamento'])
+        );
     }
 
     /**
@@ -121,7 +123,7 @@ class DepartamentoController extends Controller
     public function destroy(Departamento $departamento)
     {
         // TODO 
-        
+
         $departamento->delete();
 
         return redirect()->route('departamentos.index')
