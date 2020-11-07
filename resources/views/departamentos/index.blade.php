@@ -8,7 +8,7 @@
     </div>
     <div class="row mb-2">
         <div class="col-md-12" >
-            <a href="{{-- TODO --}}" class="btn btn-primary active" 
+            <a href="{{ route('departamentos.create') }}" class="btn btn-primary active" 
                 role="button" aria-pressed="true">Novo Departamento</a>
         </div>
     </div>

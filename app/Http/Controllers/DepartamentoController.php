@@ -25,7 +25,7 @@ class DepartamentoController extends Controller
      */
     public function create()
     {
-        //
+        return view('departamentos.create');
     }
 
     /**
@@ -36,7 +36,23 @@ class DepartamentoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(
+            [ 
+                'nome' => 'required|min:2|unique:departamentos',
+            ],
+            [
+              'nome.required' => 'O nome do departamento é obrigatório'  ,
+              'nome.min' => 'O nome de departamento deve ter no mínimo 2 letras'  ,
+              'nome.unique' => 'Este departamento já está cadastrado'  ,
+            ]
+        );
+
+        $departamento = new Departamento();
+        $departamento->nome = $request->nome;
+        $departamento->save();
+        
+        return redirect()->route('departamentos.index')
+            ->with('msg_success', 'Departamento cadastrado com sucesso');
     }
 
     /**
