@@ -112,6 +112,9 @@ class MarcaController extends Controller
      */
     public function destroy(Marca $marca)
     {
-        //
+        $marca->delete();
+
+        return redirect()->route('marcas.index')
+            ->with('msg_success', 'Marca removida com sucesso.');
     }
 }
