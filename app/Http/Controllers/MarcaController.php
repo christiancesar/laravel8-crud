@@ -59,7 +59,7 @@ class MarcaController extends Controller
      */
     public function show(Marca $marca)
     {
-        //
+        return view('marcas.show', compact(['marca']));
     }
 
     /**
