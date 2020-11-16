@@ -25,7 +25,7 @@
                     <a class="nav-link" href="{{ route('departamentos.index') }}">Departamentos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{-- TODO --}}">Marcas</span></a>
+                    <a class="nav-link" href="{{ route('marcas.index')}}">Marcas</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{-- TODO --}}">Produtos </a>

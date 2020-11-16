@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\MarcaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', IndexController::class)->name('index');
 Route::resource('departamentos', DepartamentoController::class);
+Route::resource('marcas', MarcaController::class);
