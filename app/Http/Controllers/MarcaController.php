@@ -25,7 +25,7 @@ class MarcaController extends Controller
      */
     public function create()
     {
-        //
+        return view('marcas.create');
     }
 
     /**
@@ -36,7 +36,18 @@ class MarcaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(
+            [ 'nome' => 'required|min:2|unique:marcas' ], 
+            [
+              "nome.min"    => "A marca deve ter no mínimo 2 letras.",
+              "nome.unique" => "Marca já cadastrada.",
+            ]
+        );
+        $marca = new Marca();
+        $marca->nome = $request->nome;
+        $marca->save();
+        return redirect()->route('marcas.index')
+            ->with('msg_success', 'Marca criada com sucesso.');
     }
 
     /**
