@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Marca;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class MarcaController extends Controller
 {
@@ -69,7 +70,8 @@ class MarcaController extends Controller
      */
     public function edit(Marca $marca)
     {
-        //
+        return view('marcas.edit', 
+            compact(['marca']) );
     }
 
     /**
@@ -81,7 +83,25 @@ class MarcaController extends Controller
      */
     public function update(Request $request, Marca $marca)
     {
-        //
+        $request->validate(
+            [
+                'nome' => [
+                    'required', 
+                    'min:2', 
+                    Rule::unique('marcas')->ignore($marca->id)
+                ]
+            ],
+            [
+                "nome.min"    => "A marca deve ter no mínimo 2 letras.",
+                "nome.unique" => "Marca já cadastrada.",
+            ]            
+        );
+
+        $marca->nome = $request->nome;
+        $marca->save();
+
+        return redirect()->route('marcas.index')
+            ->with('msg_success', 'Marca atualizada com sucesso.');
     }
 
     /**
