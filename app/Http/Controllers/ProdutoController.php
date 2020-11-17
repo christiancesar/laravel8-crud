@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Departamento;
+use App\Models\Marca;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 
@@ -25,7 +27,9 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        //
+        $marcas = Marca::all();
+        $departamentos = Departamento::all();
+        return view('produtos.create', compact(['marcas', 'departamentos']));
     }
 
     /**
