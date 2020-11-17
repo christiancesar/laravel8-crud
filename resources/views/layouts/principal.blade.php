@@ -28,7 +28,7 @@
                     <a class="nav-link" href="{{ route('marcas.index')}}">Marcas</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{-- TODO --}}">Produtos </a>
+                    <a class="nav-link" href="{{ route('produtos.index') }}">Produtos </a>
                 </li>
             </ul>
             <span class="navbar-text">
