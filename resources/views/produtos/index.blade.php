@@ -46,22 +46,22 @@
                 <tr>
                     <th scope="row">{{ $produto->id }}</th>
                     <td>{{ $produto->nome }}</td>
-                    <td>R$ {{  $produto->preco }}</td>
+                    <td>R$ {{ number_format($produto->preco, 2, ',', '.') }}</td>
                     <td>{{ $produto->estoque }} unidade(s)</td>
-                    <td>{{ $produto->marca_id }}</td>
+                    <td>{{ $produto->marca->nome }}</td>
                     <td>
-                        <form action="{{ route('produtos.destroy') }}" method="POST">
+                        <form action="{{ route('produtos.destroy', $produto->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm">
                                 Apagar
                             </button>                            
                             <a class="btn btn-primary btn-sm active" 
-                                href="{{ route('produtos.show') }}">
+                                href="{{ route('produtos.show', $produto->id) }}">
                                 Detalhes
                             </a>
                             <a class="btn btn-secondary btn-sm active" 
-                                href="{{ route('produtos.edit') }}">
+                                href="{{ route('produtos.edit', $produto->id) }}">
                                 Editar
                             </a>
                         </form>

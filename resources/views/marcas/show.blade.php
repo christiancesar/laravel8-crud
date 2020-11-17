@@ -23,15 +23,15 @@
 
       <div class="col-md-12" >
         
-        {{-- TODO --}}
-        
-         
-        
-        
-        
-          
-          
-        {{-- TODO --}}
+        @if(count($produtos) == 0)
+          <p> Nenhum produto associado.</p>
+        @else 
+          <ul>
+          @foreach($produtos as $produto)
+            <li> {{ $produto->nome }} </li>
+          @endforeach
+          </ul>
+        @endif
 
       </div>
     </div>        
