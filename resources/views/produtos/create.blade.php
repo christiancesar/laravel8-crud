@@ -34,11 +34,21 @@
                 <div class="form-group">
                     <label for="marca">Marca</label>
                     <select class="form-control" id="marca" name="marca" required>
-@foreach($marcas as $marca)
-                        <option value="{{ $marca->id }}">
-                            {{ $marca->nome }}
-                        </option>
-@endforeach
+                        @foreach($marcas as $marca)
+                            <option value="{{ $marca->id }}">
+                                {{ $marca->nome }}
+                            </option>
+                        @endforeach
+                    </select>                        
+                </div>               
+                <div class="form-group">
+                    <label for="fornecedor">Fornecedor</label>
+                    <select class="form-control" id="fornecedor" name="fornecedor" required>
+                        @foreach($fornecedors as $fornecedor)
+                            <option value="{{ $fornecedor->id }}">
+                                {{ $fornecedor->nome }}
+                            </option>
+                        @endforeach
                     </select>                        
                 </div>                    
                 <div class="form-group">

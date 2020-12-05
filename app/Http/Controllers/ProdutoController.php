@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Departamento;
+use App\Models\Fornecedor;
 use App\Models\Marca;
 use App\Models\Produto;
 use Illuminate\Http\Request;
@@ -29,7 +30,8 @@ class ProdutoController extends Controller
     {
         $marcas = Marca::all();
         $departamentos = Departamento::all();
-        return view('produtos.create', compact(['marcas', 'departamentos']));
+        $fornecedors = Fornecedor::all();
+        return view('produtos.create', compact(['marcas', 'departamentos', 'fornecedors']));
     }
 
     /**
@@ -45,6 +47,7 @@ class ProdutoController extends Controller
         $produto->preco = $request->preco;
         $produto->estoque = $request->estoque;
         $produto->marca_id = $request->marca;
+        $produto->fornecedor_id = $request->fornecedor;
         $produto->save();
 
         return redirect()->route('produtos.index')

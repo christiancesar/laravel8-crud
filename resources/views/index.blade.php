@@ -20,6 +20,12 @@
       {{-- TODO --}}
     </div>
 
+    <!-- Fornecedores -->
+    <div class="col-md-4" >
+      <h3>Fornecedores</h3>
+      {{-- TODO --}}
+    </div>
+
     <!-- Produtos -->
     <div class="col-md-4" >
       <h3>Produtos</h3>

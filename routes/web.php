@@ -4,6 +4,8 @@ use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\FornecedorController;
+use App\Models\Produto;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +23,4 @@ Route::get('/', IndexController::class)->name('index');
 Route::resource('departamentos', DepartamentoController::class);
 Route::resource('marcas', MarcaController::class);
 Route::resource('produtos', ProdutoController::class);
+Route::resource('fornecedors', FornecedorController::class);
